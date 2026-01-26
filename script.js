@@ -1,3 +1,13 @@
+const cursor = document.querySelector('.glowing-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    // Update top/left based on mouse clientX/clientY
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 /* ================= PRELOADER ================= */
@@ -84,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Vatsal Sarawagi"
     },
     {
-      img: "./assets/img/M2 copy 2.png",
+      img: "./assets/img/M2.png",
       quote: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       role: "Vice-President",
       name: "Siddhant Gopalka"
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Divisha"
     },
     {
-      img: "./assets/img/M5 copy.png",
+      img: "./assets/img/M5.png",
       quote: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       role: "Marketing Director",
       name: "Bhavye Gattani"
@@ -197,4 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoSlide();
   }
 
-});   
+}); 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projWrap = document.getElementById("projWrap");
+  const projNextBtn = document.getElementById("projNextBtn");
+
+  if (!projWrap || !projNextBtn) {
+    console.log("projWrap or button not found");
+    return;
+  }
+
+  projNextBtn.addEventListener("click", () => {
+    const firstBox = projWrap.querySelector(".box");
+    const gap = 32; // 2rem
+    const scrollAmount = firstBox.offsetWidth + gap;
+
+    projWrap.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  });
+});

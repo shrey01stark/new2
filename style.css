@@ -1,3 +1,26 @@
+body {
+    cursor: none; /* Hides default cursor */
+    
+    background-color: #0a0a0a; /* Dark background enhances glow */
+}
+
+.glowing-cursor {
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.434); /* Semi-transparent cyan */
+    position: fixed; /* Keeps it in view while scrolling */
+    pointer-events: none; /* Ensures clicks pass through */
+    z-index: 9999999;
+    mix-blend-mode: difference; 
+    
+    /* The Glow Effect */
+    box-shadow: 0 0 3rem 1.5rem rgba(255, 255, 255, 0.7);
+    
+    /* Center the cursor DIV on the mouse pointer */
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out; /* Optional: adds lag to the glow */
+}
 
 
 .home{
@@ -93,6 +116,7 @@
   display: flex;
   
   padding: 2rem;
+  padding-top:4.5rem;
   box-sizing: border-box;
   gap:2rem;
   padding-left:4.5rem;
@@ -202,6 +226,19 @@
   );
 }
 
+.g5::before {
+  background: linear-gradient(
+    to bottom,
+    #62027d,
+    black
+  );
+}
+
+.proj-wrap a{
+  text-decoration: none;
+  color:white;
+}
+
 .report-text p{
     visibility:hidden;
 }
@@ -232,3 +269,63 @@
     background-color: transparent;
     border:none;
 }
+
+.report-text button:hover{
+  transform: scale(1.1);
+  cursor:pointer;
+}
+
+
+
+/* Style the right button */
+.proj-nav-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    color: white;
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.home5{
+  position:relative;
+}
+
+.proj-nav-btn:hover {
+    backdrop-filter:blur(20px);
+    border-color:olivedrab;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Ensure smooth scrolling when triggered by JS */
+.proj-wrap {
+    scroll-behavior: smooth;
+}
+
+
+.proj-wrap {
+    display: flex;
+    flex-wrap: nowrap;      /* Crucial: keeps boxes in one line */
+    overflow-x: auto;       /* Allows horizontal scroll */
+    scroll-behavior: smooth; /* Native smooth scroll */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Make sure the links don't collapse */
+.proj-wrap a {
+    flex: 0 0 auto;         /* Prevents links from shrinking */
+    display: block;
+}
+

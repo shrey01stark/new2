@@ -205,6 +205,24 @@
 }
 
 @media (max-width: 600px){
+
+
+    .home {
+        /* Reduce the extra height for the landing section */
+        height: 100vh; 
+        position: relative; /* If you don't need it to stick on mobile */
+    }
+
+    .text {
+        top: 10%; /* Pull the text up slightly */
+        padding: 2rem; /* Reduce padding so content fits better */
+    }
+
+    .text h2 {
+        white-space: normal; /* Allow text to wrap so it doesn't break the layout */
+    }
+
+
   .logo{
     visibility: hidden;
     display: hidden;
