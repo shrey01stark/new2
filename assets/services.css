@@ -78,7 +78,7 @@
 .tag-item{
     border: 2px solid white;
     border-radius: 0.5rem;
-    padding: 0.2rem 1rem;
+    padding: 0.4rem 1rem;
 }
 
 
@@ -194,3 +194,4 @@
     opacity: 1;
     transform: translateY(0);
 }
+
