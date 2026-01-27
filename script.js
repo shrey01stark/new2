@@ -230,3 +230,103 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+const servicesData = [
+  {
+    num: "1.",
+    title: "Business Strategy & Growth",
+    desc: "We collaborate with organizations to design structured, data-informed strategies that clarify long-term direction, refine value propositions, and unlock sustainable growth while strengthening brand positioning and stakeholder engagement across evolving markets",
+    img: "./assets/img/1 Image.png",
+    tags: ["Branding Strategy", "Social Media Optimization", "Engagement Strategy"]
+  },
+  {
+    num: "2.",
+    title: "Market & Competitor Research",
+    desc: "We conduct comprehensive research to analyze markets, understand customers, and benchmark competitors, helping organizations make evidence-based decisions that improve offerings, identify opportunities, and strengthen competitive advantages within rapidly changing industry landscapes.",
+    img: "./assets/img/2 Image.png",
+    tags: ["Customer Surveys", "Market Analysis", "Industry Reports"]
+  },
+  {
+    num: "3.",
+    title: "Financial & Profitability Analysis",
+    desc: "We assist organizations in improving product development cycles and operational processes by optimizing supply chains, enhancing team management systems, and guiding product-market fit, thereby increasing efficiency, reducing waste, and improving service delivery standards.",
+    img: "./assets/img/3 Image.png",
+    tags: ["Pricing & Launch Strategy", "Prototyping & MVP Guidance"]
+  },
+  {
+    num: "4.",
+    title: "Product & Operational Optimization",
+    desc: "We assist organizations in improving product development cycles and operational processes by optimizing supply chains, enhancing team management systems, and guiding product-market fit, thereby increasing efficiency, reducing waste, and improving service delivery standards.",
+    img: "./assets/img/4 Image.png",
+    tags: ["Cost Benefit Analysis"]
+  },
+  {
+    num: "5.",
+    title: "Fundraising & Partnership Development",
+    desc: "We help organizations build fundraising capacity and outreach pipelines by developing compelling pitch materials, identifying grant opportunities, and connecting with relevant stakeholders, ultimately strengthening financial sustainability and strategic partnerships for long-term growth.",
+    img: "./assets/img/5 Image.png",
+    tags: ["Lead Generation", "Fundraising Strategies"]
+  },
+  {
+    num: "6.",
+    title: "Impact & Sustainability Consulting",
+    desc: "We enable purpose-driven organizations to measure outcomes, maximize social value, and adopt sustainability practices through structured impact frameworks, performance indicators, and strategic guidance tailored to mission alignment and long-term societal benefit.",
+    img: "./assets/img/6 Image.png",
+    tags: ["Sustainibility Consulting","Impact Maximization Strategy"]
+  }
+];
+
+const container = document.getElementById("servicesContainer");
+
+servicesData.forEach((service, index) => {
+  const block = document.createElement("div");
+  block.classList.add("service-grid");
+
+  // alternate layout: even = normal, odd = reverse
+  if (index % 2 !== 0) {
+    block.classList.add("reverse");
+  }
+
+  block.innerHTML = `
+    <img src="${service.img}" alt="${service.title}">
+    <div class="service-grid-text">
+      <div class="num">${service.num}</div>
+      <h1>${service.title}</h1>
+      <p>${service.desc}</p>
+      <div class="tags">
+        ${service.tags.map(tag => `<div class="tag-item glass-card">${tag}</div>`).join("")}
+      </div>
+    </div>
+  `;
+
+  container.appendChild(block);
+});
+
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".service-grid").forEach(grid => {
+  observer.observe(grid);
+});
+
+const stagger = document.querySelector(".stagger-meet");
+
+const staggerObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      stagger.classList.add("show");
+      staggerObserver.unobserve(stagger); // run only once
+    }
+  });
+}, { threshold: 0.3 });
+
+staggerObserver.observe(stagger);
+

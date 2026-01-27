@@ -204,7 +204,7 @@
   .hamburger-menu { display: none; }
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
 
 
     .home {
@@ -232,10 +232,6 @@
     padding: 0 2rem;
   }
 
-  .text{
-    padding: 4rem 2.5rem;
-  }
-
   .text p{
     font-size: 0.9rem;
     line-height: 1.3rem;
@@ -245,4 +241,10 @@
     padding: 0.5rem 1.5rem;
   }
 
+}
+
+@media (min-width:1000px){
+.text{
+  margin-top:-8rem !important;
+}
 }
