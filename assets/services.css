@@ -80,6 +80,24 @@
     border-radius: 0.5rem;
     padding: 0.4rem 1rem;
 }
+.home3{
+     padding: 0rem 0 8rem 0;
+}
+
+@media (max-width:768px){
+    .tags{
+        flex-direction: column;
+        
+    }
+
+    .home3{
+        padding:0;
+    }
+
+    .tag-item{
+        width:fit-content;
+    }
+}
 
 
 
@@ -180,6 +198,13 @@
       width:100%;
       padding-bottom:2rem;
   }
+  .grad-line3{
+    width:100%;
+    padding:0.5px;
+    position:absolute;
+    bottom:1rem;
+    background:linear-gradient(to right, black, white, black);
+}
 
 }
 

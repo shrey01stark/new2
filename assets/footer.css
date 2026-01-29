@@ -12,7 +12,7 @@
 }
 
 .f-wrap1{
-    height:65%;
+    height:60%;
     width:100%;
     display:flex;
 }
@@ -147,7 +147,7 @@ input::placeholder{
 .grad-line{
     width:95%;
     padding:0.5px;
-    margin:2rem 0;
+    margin:1rem 0 2rem 0;
     background:linear-gradient(to right, black, white, black);
 }
 
@@ -322,7 +322,6 @@ iframe{
     padding: 2rem 1.2rem;
   }
 
-  /* Stack vert1 and vert2 */
   .f-wrap1{
     flex-direction: column;
     height: auto;

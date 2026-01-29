@@ -26,11 +26,16 @@ body{
 
 
 .home3,
-.home6 {
+.home6, .clients-div, .about-home {
     position: relative;
     width: 100vw;
     height: auto;
     min-height: 100vh;
+}
+
+.about-home{
+    min-height: 90vh;
+    
 }
 
 
