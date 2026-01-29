@@ -248,6 +248,7 @@
 			flex-direction: row;
 			gap:3rem;
 			margin-bottom: 2rem;
+			justify-content: center;
 		}
 
 		.l1{
@@ -257,6 +258,7 @@
 			overflow: hidden;
 			aspect-ratio: 16 / 10; 
 			cursor: pointer;
+			text-align: center;
 		}
 
 		.l1 img{
@@ -274,7 +276,8 @@
 
 		.l1 p{
 			color:white;
-
+			font-size: 1rem;
+			line-height: 1.5rem;
 		}
 
 		.text-client{
@@ -322,21 +325,6 @@
 			transform: translateY(0);
 		}
 
-		.text-client button{
-			border:2px solid black;
-			background-color: transparent;
-			color:white;
-			border-radius: 4rem;
-			padding: 0.5rem 0;
-			font-weight: 600;
-			width:60%;
-		}
-
-		.text-client button:hover{
-			background-color: black;
-			cursor:pointer;
-			
-		}
 
 			.grad-trust::before{
 			background: linear-gradient(to top, #2e2d53, black);
@@ -360,6 +348,26 @@
 
 			.grad-red::before{
 			background: linear-gradient(to top, #733837, black);
+			}
+
+			.grad-violet::before{
+			background: linear-gradient(to top, #330830, black);
+			}
+
+			.grad-orange::before{
+			background: linear-gradient(to top, #cc2d04, black);
+			}
+
+			.grad-ddblue::before{
+			background: linear-gradient(to top, rgb(2, 2, 86), black);
+			}
+
+			.grad-green::before{
+			background: linear-gradient(to top, #07362f, black);
+			}
+
+			.grad-dpink::before{
+			background: linear-gradient(to top, #4d132d, black);
 			}
 
 
@@ -389,54 +397,117 @@
 
 	</style>
 
-	<section class="clients-div">
+	<section class="clients-div" style="padding:2rem 0 8rem 0;">
 		<div class="client-wrap">
 			<h1>Our Clients</h1>
 			<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ut suscipit, sapiente cum libero atque, ullam, explicabo asperiores enim consequatur vel dicta exercitationem qui! Tempore?</h3>
 			<div class="wrap2">
 				<div class="l1 grad-blue">
-					<img src="./assets/img/Hive School 2.png">
+					<img src="./assets/img/2.png">
 					<div class="text-client">
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						<p>HiveSchool is a revenue-focused business school offering industry-driven programs in technology, entrepreneurship, and business fundamentals, combining hands-on training with leadership insights to prepare high-impact professionals for global careers and competitive placements across diverse sectors.</p>
 					</div>
 				</div>
 				<div class="l1 grad-white">
-					<img src="./assets/img/Anubhuti.png">
+					<img src="./assets/img/5.png">
 					<div class="text-client">
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						<p>Anubhuti Organisation is a non-profit working to provide quality education for underprivileged children, creating opportunities for holistic development, empowering communities, and positively impacting thousands of young lives across Uttar Pradesh and Haryana since 2016.</p>
+						
 					</div>
 				</div>
 				<div class="l1 grad-dblue">
-					<img src="./assets/img/Guby Rogers.png">
+					<img src="./assets/img/1.png">
 					<div class="text-client">
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						<p>Guby Rogers Academy provides technical and soft skills training, HR consultancy, and recruitment solutions, helping students and professionals enhance employability, connect with industry opportunities, and transition successfully from education to meaningful, career-oriented roles.</p>
+						
 					</div>
 				</div>
 			</div>
 
 			<div class="wrap2">
 				<div class="l1 grad-trust">
-					<img src="./assets/img/Trusmont.png">
+					<img src="./assets/img/3.png">
 					<div class="text-client">
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						<p>Trusmont builds financial solutions that simplify complex investment processes, improve access to hidden opportunities, and empower investors with clarity, transparency, and informed decision-making for wealth creation.</p>
+						
 					</div>
 				</div>
 				<div class="l1 grad-pink">
-					<img src="./assets/img/Boss Bella.png">
+					<img src="./assets/img/6.png">
 					<div class="text-client">
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						<p>Boss Bella is a fashion brand focused on creating feminine, flattering formalwear that blends confidence, elegance, and affordability, empowering women to embrace power dressing that feels graceful, modern, and accessible without compromising on quality or style.</p>
+						
 					</div>
 				</div>
 				<div class="l1 grad-red">
-					<img src="./assets/img/Vital Edge.png">
+					<img src="./assets/img/7.png">
+					<div class="text-client">
+						<p>VitalEdge is a global leader committed to empowering equipment dealerships through innovative solutions and exceptional customer experiences. Explore rewarding opportunities to grow, collaborate, and make an impact in an industry-focused environment.</p>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap2">
+				<div class="l1 grad-ddblue">
+					<img src="./assets/img/4.png">
+					<div class="text-client">
+						<p>R S Engineers & Consultants is an industrial gearbox exporter delivering high-quality, precision-engineered solutions, serving global markets with dependable products, rigorous quality standards, and customer-focused services that enhance operational efficiency, reliability, and performance across diverse industries.</p>
+						
+					</div>
+				</div>
+				<div class="l1 grad-violet">
+					<img src="./assets/img/8.png">
+					<div class="text-client">
+						<p>CTRL is a creative agency delivering high-quality design, video, and social storytelling services, helping startups and brands build strong identities, engage audiences, and stay relevant through strategic content, platform expertise, and performance-driven creative solutions.</p>
+						
+					</div>
+				</div>
+				<div class="l1 grad-orange">
+					<img src="./assets/img/9.png">
 					<div class="text-client">
 						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
-						<button>Know More ></button>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap2">
+				<div class="l1 grad-green">
+					<img src="./assets/img/10.png">
+					<div class="text-client">
+						<p>Livo is a high-end AI consultancy specializing in bespoke, production-ready AI agents that understand context, integrate with existing tools, and continuously improve performance, enabling teams to automate complex tasks and achieve greater efficiency and decision-making accuracy.</p>
+						
+					</div>
+				</div>
+				<div class="l1 grad-dpink">
+					<img src="./assets/img/11.png">
+					<div class="text-client">
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis ratione iusto aliquid.</p>
+						
+					</div>
+				</div>
+				<div class="l1 grad-dblue">
+					<img src="./assets/img/12.png">
+					<div class="text-client">
+						<p>We Listen Foundation is a mental health nonprofit promoting awareness, accessibility to therapy, and safe spaces for adolescents, working to ensure young individuals feel heard, supported, and empowered while addressing emotional well-being across communities in India.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap2">
+				<div class="l1 grad-red">
+					<img src="./assets/img/13.png">
+					<div class="text-client">
+						<p>UDAI Working Together Works is a Delhi-based charitable trust supporting children and adults with special needs through education, therapy, vocational training, and rehabilitation programs focused on holistic development, independence, and inclusive community integration since 2009.</p>
+						
+					</div>
+				</div>
+				<div class="l1 grad-violet">
+					<img src="./assets/img/14.png">
+					<div class="text-client">
+						<p>Tare Zameen Foundation is a nonprofit empowering underprivileged communities through education, health awareness, women’s empowerment, environmental initiatives, and relief programs, promoting inclusive development and social well-being.</p>
+						
 					</div>
 				</div>
 			</div>
