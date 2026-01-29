@@ -26,7 +26,7 @@ body{
 
 
 .home3,
-.home6, .clients-div, .about-home {
+.home6, .clients-div, .about-home , .roadmap{
     position: relative;
     width: 100vw;
     height: auto;
@@ -38,6 +38,10 @@ body{
     
 }
 
+.home6{
+    min-height:80vh;
+    height:90vh;
+}
 
 .home2{
     height: 115vh;
