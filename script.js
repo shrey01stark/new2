@@ -330,3 +330,43 @@ const staggerObserver = new IntersectionObserver(entries => {
 
 staggerObserver.observe(stagger);
 
+const counters = document.querySelectorAll(".count-up");
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+
+    // Extract number + suffix (like +)
+    const fullText = el.textContent.trim();
+    const number = parseInt(fullText.replace(/\D/g, ""), 10);
+    const suffix = fullText.replace(/[0-9]/g, "");
+
+    const duration = 1000;
+    const startTime = performance.now();
+
+    function animateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * number);
+
+      el.textContent = value + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(animateCount);
+      } else {
+        el.textContent = number + suffix;
+      }
+    }
+
+    el.textContent = "0" + suffix;
+    requestAnimationFrame(animateCount);
+  });
+}, {
+  threshold: 0.6
+});
+
+counters.forEach(counter => {
+  counterObserver.observe(counter);
+});

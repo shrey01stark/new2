@@ -115,6 +115,10 @@
     transition: .15s ease;
   }
 
+  .mob-li h2{
+    font-weight: 400;
+  }
+
 
   /* show tooltip on hover */
   .mob-a:hover .mob-span {

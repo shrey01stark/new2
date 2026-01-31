@@ -212,73 +212,272 @@
 			</div>
 	</section>
 
-	<section id="home5" class="home5" style="background-color:rgb(0, 0, 0);">
-		<div class="proj-wrap" id="projWrap">
-			<a href="https://www.linkedin.com/posts/180-degrees-consulting-atma-ram-sanatan-dharma-college_drug-rehabilitation-report-activity-7324364603319033856-Yu79?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMNkzkBfAR6Ri2RDAiG3IPAD0YbrwRo2YI">
-				<div class="box g1">
-					<img src="./assets/img/Drug.jpeg">
-					<div class="report-text">
-						<h3>RESEARCH REPORT</h3>
-						<h2>Pulse of change: What's top of mind for today's leaders?</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, dolore ex nemo nostrum optio vel assumenda, atque aliquid, inventore quibusdam tempore facilis nihil quis facere!</p>
-						<button>Explore<i class='fas fa-external-link-alt'></i></button>
-					</div>
-				</div>
-			</a>
-			<a href="https://www.linkedin.com/posts/180-degrees-consulting-atma-ram-sanatan-dharma-college_gambling-industry-report-activity-7397195169390927872-6cEK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMNkzkBfAR6Ri2RDAiG3IPAD0YbrwRo2YI">
-				<div class="box g2">
-					<img src="./assets/img/Gamble.jpeg">
-					<div class="report-text">
-						<h3>RESEARCH REPORT</h3>
-						<h2>Pulse of change: What's top of mind for today's leaders?</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, dolore ex nemo nostrum optio vel assumenda, atque aliquid, inventore quibusdam tempore facilis nihil quis facere!</p>
-						<button>Explore<i class='fas fa-external-link-alt'></i></button>
-					</div>
-				</div>
-			</a>
-			<a href="https://www.linkedin.com/posts/180-degrees-consulting-atma-ram-sanatan-dharma-college_comedy-industry-report-activity-7348351580225642496--0Tk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMNkzkBfAR6Ri2RDAiG3IPAD0YbrwRo2YI">
-				<div class="box g3">
-					<img src="./assets/img/Comedy.jpeg">
-					<div class="report-text">
-						<h3>RESEARCH REPORT</h3>
-						<h2>Pulse of change: What's top of mind for today's leaders?</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, dolore ex nemo nostrum optio vel assumenda, atque aliquid, inventore quibusdam tempore facilis nihil quis facere!</p>
-						<button>Explore<i class='fas fa-external-link-alt'></i></button>
-					</div>
-				</div>
-			</a>
-			<a href="https://www.linkedin.com/posts/180-degrees-consulting-atma-ram-sanatan-dharma-college_solar-industry-report-activity-7383078107945127936-4JvH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMNkzkBfAR6Ri2RDAiG3IPAD0YbrwRo2YI">
-				<div class="box g4">
-					<img src="./assets/img/Solar.jpeg">
-					<div class="report-text">
-						<h3>RESEARCH REPORT</h3>
-						<h2>Pulse of change: What's top of mind for today's leaders?</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, dolore ex nemo nostrum optio vel assumenda, atque aliquid, inventore quibusdam tempore facilis nihil quis facere!</p>
-						<button>Explore<i class='fas fa-external-link-alt'></i></button>
-					</div>
-				</div>
-			</a>
+	<style>
 
-			<a href="https://www.linkedin.com/posts/180-degrees-consulting-atma-ram-sanatan-dharma-college_drug-rehabilitation-report-activity-7324364603319033856-Yu79?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMNkzkBfAR6Ri2RDAiG3IPAD0YbrwRo2YI">
-				<div class="box g5">
-					<img src="./assets/img/gcfg.png">
-					<div class="report-text">
-						<h3>UPCOMING REPORTS</h3>
-						<h2>Pulse of change: What's top of mind for today's leaders?</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, dolore ex nemo nostrum optio vel assumenda, atque aliquid, inventore quibusdam tempore facilis nihil quis facere!</p>
-						<button>Coming Soon<i class='fas fa-external-link-alt'></i></button>
-					</div>
-				</div>
-			</a>
+		.results {
+		display: flex;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		justify-content: center;
+		align-items: center;
+		list-style-type: none;
+		}
+
+		.result {
+		padding: 0;
+		}
+
+		.result img {
+		max-width: 100%;
+		width: 100%;
+		object-fit: cover;
+		transition: all 0.2s ease-in-out;
+		}
+
+		.results:is(:hover, :focus-within) img {
+		opacity: calc(0.1 + (var(--active-lerp, 0) * 0.9));
+		filter: grayscale(calc(1 - var(--active-lerp, 0)));
+		}
+
+		:root {
+		--lerp-0: 1;
+		--lerp-1: 0.5787037;
+		--lerp-2: 0.2962963;
+		--lerp-3: 0.125;
+		--lerp-4: 0.037037;
+		--lerp-5: 0.0046296;
+		--lerp-6: 0;
+		}
+
+		a {
+		outline-offset: 4px;
+		}
+
+		.result {
+		flex: calc(0.1 + (var(--active-lerp, 0) * 1));
+		transition: flex 0.2s ease;
+		}
+
+		.result:is(:hover, :focus-within) {
+		--active-lerp: var(--lerp-0);
+		z-index: 7;
+		}
+		.result:has( + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result {
+		--active-lerp: var(--lerp-1);
+		z-index: 6;
+		}
+		.result:has( + .result + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result + .result {
+		--active-lerp: var(--lerp-2);
+		z-index: 5;
+		}
+		.result:has( + .result + .result + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result + .result + .result {
+		--active-lerp: var(--lerp-3);
+		z-index: 4;
+		}
+		.result:has( + .result + .result + .result + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result + .result + .result + .result {
+		--active-lerp: var(--lerp-4);
+		z-index: 3;
+		}
+		.result:has( + .result + .result + .result + .result + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result + .result + .result + .result + .result {
+		--active-lerp: var(--lerp-5);
+		z-index: 2;
+		}
+		.result:has( + .result + .result + .result + .result + .result + .result:is(:hover, :focus-within)),
+		.result:is(:hover, :focus-within) + .result + .result + .result + .result + .result + .result {
+		--active-lerp: var(--lerp-6);
+		z-index: 1;
+		}
+
+		.carousel-events{
+			padding:4rem;
+		}
+
+		.carousel-text{
+			width:50%;
+		}
+
+		.carousel-text h1{
+			font-size: 4rem;
+		}
+
+		.carousel-text h3{
+			width:80%;
+			font-weight: 400;
+			margin-top: -2rem;
+			margin-bottom: 4rem;
+		}
+
+
+
+		@media (max-width: 900px){
+
+			.carousel-text{
+			width:100%;
+		}
+
+			.carousel-text h1{
+			font-size: 3rem;
+		}
+
+		.carousel-text h3{
+			width:100%;
+			font-size: 1rem;
+			padding:2rem 0 4rem 0;
+		}
+
+			.results {
+				flex-direction: column;
+				height: 100vh;
+			}
+
+			.result {
+				flex: 1;
+				width: 100%;
+				min-height: 80px;
+				transition: flex 0.25s ease;
+				overflow: hidden;
+			}
+
+			.result img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			/* ACTIVATE ON TOUCH */
+			.result:is(:active, :focus-within) {
+				--active-lerp: var(--lerp-0);
+				z-index: 7;
+			}
+
+			.result:has(+ .result:is(:active, :focus-within)),
+			.result:is(:active, :focus-within) + .result {
+				--active-lerp: var(--lerp-1);
+				z-index: 6;
+			}
+
+			.result:has(+ .result + .result:is(:active, :focus-within)),
+			.result:is(:active, :focus-within) + .result + .result {
+				--active-lerp: var(--lerp-2);
+				z-index: 5;
+			}
+
+			.result:has(+ .result + .result + .result:is(:active, :focus-within)),
+			.result:is(:active, :focus-within) + .result + .result + .result {
+				--active-lerp: var(--lerp-3);
+				z-index: 4;
+			}
+
+			/* opacity + grayscale stays SAME */
+			.results:is(:active, :focus-within) img {
+				opacity: calc(0.15 + (var(--active-lerp, 0) * 0.85));
+				filter: grayscale(calc(1 - var(--active-lerp, 0)));
+			}
+
+			}
+	</style>
+
+	<section class="carousel-events">
+		<div class="carousel-text">
+			<h1><span style="color:olivedrab">ODYSSEY </span>180DC <i style="font-size: 3.5rem; color:white;" class="fas fa-chevron-circle-down"></i>  </h1>
+			<h3>Our Annual Flagship Event Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, non!</h3>
 		</div>
-		<button class="proj-nav-btn right" id="projNextBtn">
-       	 <i class="fas fa-play"></i>
-		</button>
-
-		
-		
-
+		<div class="carousel">
+			<ul class="results">
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1551978429-3dbfed5cacc9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3Nw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3OA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1494625927555-6ec4433b1571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4Mw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1435732960391-11053ee5e6b6?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5Ng&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+			</ul>
+		</div>
 	</section>
+
+	<section class="carousel-events" style="display: flex; flex-direction: column; align-items: flex-end; justify-content: right; padding-top: 0;">
+		<div class="carousel-text" style="text-align: right;">
+			<h1><span style="color:olivedrab">SYNAPSE </span>180DC <i style="font-size: 3.5rem; color:white;" class="fas fa-chevron-circle-down"></i>  </h1>
+			<h3>Our Annual Flagship Event Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, non!</h3>
+		</div>
+		<div class="carousel">
+			<ul class="results">
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1551978429-3dbfed5cacc9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3Nw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3OA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1494625927555-6ec4433b1571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4Mw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1435732960391-11053ee5e6b6?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5Ng&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+				<li class="result">
+					<a href="#"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	
     <footer id="home6" class="home6" style="background-color:black;">
 		<div class="footer-wrap">
 			<div class="f-wrap1">
@@ -324,13 +523,13 @@
 							<ul class="ul-f">
 								<li class="li-f">
 									<a href="#">
-									<i class="fab fa-facebook-f icon"></i>    </a>
+									<i class="fab fa-whatsapp icon"></i>    </a>
 								</li>
 								<li class="li-f">
-									<a href="#"><i class="fab fa-twitter icon"></i></a>
+									<a href="https://www.instagram.com/180dc.arsd/"><i class="fab fa-instagram icon"></i></a>
 								</li>
 								<li class="li-f">
-									<a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+									<a href="https://www.linkedin.com/company/180-degrees-consulting-atma-ram-sanatan-dharma-college/"><i class="fab fa-linkedin-in icon"></i></a></li>
 							</ul>
 						</div>
 						<a href="#home">
