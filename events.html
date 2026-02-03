@@ -200,7 +200,7 @@
 	<section id="home" class="home">
 		<img src="./assets/img/R&D.jpg">
 			<div class="text">
-				<h2 style="margin-top:0;">Learning Beyond Classrooms</h2>
+				<h2 style="margin-top:0; white-space:wrap;">Learning Beyond Classrooms</h2>
 				<h1>SHAPING <span style="color:#83bc3d">MINDS</span></h1>
 				<div class="line"></div>
 				<h3 style="color:#83bc3d">Workshops, competitions, and industry interactions.</h3>
@@ -212,273 +212,344 @@
 			</div>
 	</section>
 
-	<style>
+<style>
+/* --- Carousel & Odyssey Section Styles --- */
 
-		.results {
-		display: flex;
-		width: 100%;
-		padding: 0;
-		margin: 0;
-		justify-content: center;
-		align-items: center;
-		list-style-type: none;
-		}
+.carousel {
+  /* Variables */
+  --nav-btn-size: 45px;
+  --nav-btn-bg: olivedrab;
+  --nav-marker-bg: olivedrab;
 
-		.result {
-		padding: 0;
-		}
+  /* Layout */
+  width: 100vw;
+  max-width: 1200px;
+  list-style: none;
+  padding-block: 3rem; 
+  display: grid;
+  grid-auto-flow: column;
+  /* Adjusts width automatically for mobile */
+  grid-auto-columns: min(22rem, 75vw); 
+  gap: 1rem;
+  
+  /* Positioning & Anchor */
+  anchor-name: --carousel;
+  position: relative;
+  
+  /* Scroll Snap Logic */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  
+}
 
-		.result img {
-		max-width: 100%;
-		width: 100%;
-		object-fit: cover;
-		transition: all 0.2s ease-in-out;
-		}
+/* Hide scrollbar for Chrome/Safari */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
 
-		.results:is(:hover, :focus-within) img {
-		opacity: calc(0.1 + (var(--active-lerp, 0) * 0.9));
-		filter: grayscale(calc(1 - var(--active-lerp, 0)));
-		}
+/* Centering the first and last items */
+.carousel::before,
+.carousel::after {
+  content: '';
+  width: 100%;
+}
 
-		:root {
-		--lerp-0: 1;
-		--lerp-1: 0.5787037;
-		--lerp-2: 0.2962963;
-		--lerp-3: 0.125;
-		--lerp-4: 0.037037;
-		--lerp-5: 0.0046296;
-		--lerp-6: 0;
-		}
+/* --- Carousel Items --- */
+.carousel > div {
+  position: relative;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  container-type: scroll-state;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-		a {
-		outline-offset: 4px;
-		}
+.carousel .img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
 
-		.result {
-		flex: calc(0.1 + (var(--active-lerp, 0) * 1));
-		transition: flex 0.2s ease;
-		}
+/* Shrink items that aren't centered/snapped */
+@container not scroll-state(snapped: inline) {
+  .carousel .img {
+    scale: 0.7;
+    opacity: 0.4;
+    filter: blur(2px);
+  }
+}
 
-		.result:is(:hover, :focus-within) {
-		--active-lerp: var(--lerp-0);
-		z-index: 7;
-		}
-		.result:has( + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result {
-		--active-lerp: var(--lerp-1);
-		z-index: 6;
-		}
-		.result:has( + .result + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result + .result {
-		--active-lerp: var(--lerp-2);
-		z-index: 5;
-		}
-		.result:has( + .result + .result + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result + .result + .result {
-		--active-lerp: var(--lerp-3);
-		z-index: 4;
-		}
-		.result:has( + .result + .result + .result + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result + .result + .result + .result {
-		--active-lerp: var(--lerp-4);
-		z-index: 3;
-		}
-		.result:has( + .result + .result + .result + .result + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result + .result + .result + .result + .result {
-		--active-lerp: var(--lerp-5);
-		z-index: 2;
-		}
-		.result:has( + .result + .result + .result + .result + .result + .result:is(:hover, :focus-within)),
-		.result:is(:hover, :focus-within) + .result + .result + .result + .result + .result + .result {
-		--active-lerp: var(--lerp-6);
-		z-index: 1;
-		}
+.carousel .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
 
-		.carousel-events{
-			padding:4rem;
-		}
+/* --- Navigation Buttons (The Fix) --- */
+.carousel::scroll-button(*) {
+  position: absolute;
+  position-anchor: --carousel;
+  width: var(--nav-btn-size);
+  height: var(--nav-btn-size);
+  background-color: var(--nav-btn-bg);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
 
-		.carousel-text{
-			width:50%;
-		}
+  /* VERTICAL CENTERING logic */
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-		.carousel-text h1{
-			font-size: 4rem;
-		}
+.carousel::scroll-button(inline-start) {
+  content: '❮';
+  left: anchor(left);
+  margin-left: calc(var(--nav-btn-size) * -0.5); /* Hangs off the edge slightly */
+}
 
-		.carousel-text h3{
-			width:80%;
-			font-weight: 400;
-			margin-top: -2rem;
-			margin-bottom: 4rem;
-		}
+.carousel::scroll-button(inline-end) {
+  content: '❯';
+  right: anchor(right);
+  margin-right: calc(var(--nav-btn-size) * -0.5);
+}
+
+.carousel::scroll-button(*):hover {
+  scale: 1.1;
+  background-color: #6b8e23; /* Darker olive */
+}
+
+.carousel::scroll-button(*):disabled {
+  opacity: 0; /* Hide buttons when no more scroll space */
+  pointer-events: none;
+}
+
+/* --- Pagination Markers --- */
+.carousel::scroll-marker-group {
+  position: absolute;
+  position-anchor: --carousel;
+  top: anchor(bottom);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+}
+
+.carousel::scroll-marker {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: var(--nav-marker-bg);
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.carousel::scroll-marker:target-current {
+  opacity: 1;
+  scale: 1.5;
+}
+
+/* --- Section Layout Fixes --- */
+.ody-div {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.ody-div h1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .ody-div h1 { font-size: 2.5rem !important; }
+  .carousel { width: 95vw; }
+}
+
+/* Ensure the Odyssey Section background and text contrast */
+section {
+  background-color: #0a0a0a; /* Dark background to make olive pop */
+  overflow: hidden; /* Prevent horizontal scroll on body */
+}
+
+/* Container to keep buttons and carousel together */
+.carousel-container {
+    position: relative;
+    width: 90vw;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel {
+    --nav-marker-bg: olivedrab;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(22rem, 75vw);
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-block: 3rem;
+}
+
+.carousel::-webkit-scrollbar { display: none; }
+
+/* Centering padding for the ends */
+.carousel::before, .carousel::after {
+    content: '';
+    width: 50vw; /* Adjust based on item size */
+}
+
+/* Items logic */
+.carousel > div {
+    scroll-snap-align: center;
+    container-type: scroll-state;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel .img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    transition: all 400ms ease;
+}
+
+/* Focus effect on centered item */
+@container not scroll-state(snapped: inline) {
+    .carousel .img {
+        scale: 0.7;
+        opacity: 0.4;
+        filter: blur(2px);
+    }
+}
+
+.carousel .img img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- NAVIGATION BUTTONS --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: olivedrab;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.nav-btn:hover { background: #6b8e23; scale: 1.1; }
+
+.nav-btn.prev { left: -25px; }
+.nav-btn.next { right: -25px; }
 
 
+/* Section styling */
+.carousel-section {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0a0a0a;
+}
+</style>
 
-		@media (max-width: 900px){
+<section class="carousel-section" style="padding:2rem;">
+    <div class="ody-div">
+        <h1 style="font-size: 4rem;"><span style="color:olivedrab;">Odyssey</span> 180DC (2025)</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod placeat mollitia excepturi assumenda nam ratione autem ipsum error sit quisquam neque quasi quis, dicta fugit? Beatae sapiente ad temporibus sequi.</p>
+    </div>
 
-			.carousel-text{
-			width:100%;
-		}
+    <div class="carousel-container">
+        <button class="nav-btn prev" onclick="this.nextElementSibling.scrollBy({left: -300, behavior: 'smooth'})">❮</button>
+        
+        <div class="carousel">
+            <div><div class="img"><img src="./assets/img/event_img/1.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/2.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/3.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/4.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/5.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/6.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/7.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/8.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/9.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/10.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/11.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/12.png"></div></div>
+        </div>
 
-			.carousel-text h1{
-			font-size: 3rem;
-		}
+        <button class="nav-btn next" onclick="this.previousElementSibling.scrollBy({left: 300, behavior: 'smooth'})">❯</button>
+    </div>
+</section>
 
-		.carousel-text h3{
-			width:100%;
-			font-size: 1rem;
-			padding:2rem 0 4rem 0;
-		}
+<section class="carousel-section" style="padding:2rem;">
+    <div class="ody-div">
+        <h1 style="font-size: 4rem;"><span style="color:olivedrab;">Synapse</span> 180DC (2025)</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aut harum enim sed inventore est obcaecati vel neque vitae perspiciatis molestiae aspernatur quod totam repellat expedita, illo quisquam soluta necessitatibus ipsum animi voluptas nisi. Natus dicta iure eligendi blanditiis debitis.</p>
+    </div>
+    <div class="carousel-container">
+        <button class="nav-btn prev" onclick="this.nextElementSibling.scrollBy({left: -300, behavior: 'smooth'})">❮</button>
+        <div class="carousel">
+			<div><div class="img"><img src="./assets/img/event_img/1.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/2.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/3.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/4.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/5.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/6.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/7.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/8.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/9.png"></div></div>
+			<div><div class="img"><img src="./assets/img/event_img/10.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/11.png"></div></div>
+            <div><div class="img"><img src="./assets/img/event_img/12.png"></div></div>
+        </div>
+        <button class="nav-btn next" onclick="this.previousElementSibling.scrollBy({left: 300, behavior: 'smooth'})">❯</button>
+    </div>
+</section>
 
-			.results {
-				flex-direction: column;
-				height: 100vh;
-			}
+<section>
 
-			.result {
-				flex: 1;
-				width: 100%;
-				min-height: 80px;
-				transition: flex 0.25s ease;
-				overflow: hidden;
-			}
-
-			.result img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			/* ACTIVATE ON TOUCH */
-			.result:is(:active, :focus-within) {
-				--active-lerp: var(--lerp-0);
-				z-index: 7;
-			}
-
-			.result:has(+ .result:is(:active, :focus-within)),
-			.result:is(:active, :focus-within) + .result {
-				--active-lerp: var(--lerp-1);
-				z-index: 6;
-			}
-
-			.result:has(+ .result + .result:is(:active, :focus-within)),
-			.result:is(:active, :focus-within) + .result + .result {
-				--active-lerp: var(--lerp-2);
-				z-index: 5;
-			}
-
-			.result:has(+ .result + .result + .result:is(:active, :focus-within)),
-			.result:is(:active, :focus-within) + .result + .result + .result {
-				--active-lerp: var(--lerp-3);
-				z-index: 4;
-			}
-
-			/* opacity + grayscale stays SAME */
-			.results:is(:active, :focus-within) img {
-				opacity: calc(0.15 + (var(--active-lerp, 0) * 0.85));
-				filter: grayscale(calc(1 - var(--active-lerp, 0)));
-			}
-
-			}
-	</style>
-
-	<section class="carousel-events">
-		<div class="carousel-text">
-			<h1><span style="color:olivedrab">ODYSSEY </span>180DC <i style="font-size: 3.5rem; color:white;" class="fas fa-chevron-circle-down"></i>  </h1>
-			<h3>Our Annual Flagship Event Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, non!</h3>
-		</div>
-		<div class="carousel">
-			<ul class="results">
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1551978429-3dbfed5cacc9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3Nw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3OA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1494625927555-6ec4433b1571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4Mw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1435732960391-11053ee5e6b6?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5Ng&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-			</ul>
+		<div class="coming-soon-R&D" style="width:100vw; height:60vh;">
+			<img src="./assets/img/Consulting Playbook.png" style="width:100%; height:100%; object-fit: cover;">
 		</div>
 	</section>
 
-	<section class="carousel-events" style="display: flex; flex-direction: column; align-items: flex-end; justify-content: right; padding-top: 0;">
-		<div class="carousel-text" style="text-align: right;">
-			<h1><span style="color:olivedrab">SYNAPSE </span>180DC <i style="font-size: 3.5rem; color:white;" class="fas fa-chevron-circle-down"></i>  </h1>
-			<h3>Our Annual Flagship Event Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, non!</h3>
-		</div>
-		<div class="carousel">
-			<ul class="results">
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1551978429-3dbfed5cacc9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3Nw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3OA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1494625927555-6ec4433b1571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4Mw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1435732960391-11053ee5e6b6?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5Ng&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-				<li class="result">
-					<a href="#"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-	
-    <footer id="home6" class="home6" style="background-color:black;">
+	<footer id="home6" class="home6" style="background-color:black;">
 		<div class="footer-wrap">
 			<div class="f-wrap1">
 				<div class="f-vert1">
@@ -499,7 +570,7 @@
 							
 						</div>
 						<h3>Got any queries? Are you looking forward to a collaboration? Send an email, and we'll get back to you within 24 business hours.</h3>
-						<a href="https://www.accenture.com/in-en" target="_blank" style="color:white;">
+						<a target="_blank" href="https://www.accenture.com/in-en" target="_blank" style="color:white;">
 							<div class="mail-div">
 								<img src="./assets/img/mail-plus.svg">
 								<h4>Send an E-mail</h4>
@@ -522,14 +593,14 @@
 						<div class="icons">
 							<ul class="ul-f">
 								<li class="li-f">
-									<a href="#">
+									<a target="_blank" href="#">
 									<i class="fab fa-whatsapp icon"></i>    </a>
 								</li>
 								<li class="li-f">
-									<a href="https://www.instagram.com/180dc.arsd/"><i class="fab fa-instagram icon"></i></a>
+									<a target="_blank" href="https://www.instagram.com/180dc.arsd/"><i class="fab fa-instagram icon"></i></a>
 								</li>
 								<li class="li-f">
-									<a href="https://www.linkedin.com/company/180-degrees-consulting-atma-ram-sanatan-dharma-college/"><i class="fab fa-linkedin-in icon"></i></a></li>
+									<a target="_blank" href="https://www.linkedin.com/company/180-degrees-consulting-atma-ram-sanatan-dharma-college/"><i class="fab fa-linkedin-in icon"></i></a></li>
 							</ul>
 						</div>
 						<a href="#home">
@@ -537,15 +608,12 @@
 						</a>
 							<h1>'26&copy;</h1>
 					</div>
-					<h4>Developed by 
-						<a href="">Shreyansh</a> &amp; Designed by
-						<a href="">Avish</a> 
-					</h4>
 				</div>
 			</div>
 		</div>
 
 	</footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

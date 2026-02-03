@@ -26,7 +26,7 @@ body{
 
 
 .home3,
-.home6, .clients-div, .about-home , .roadmap, .carousel-events{
+.home6, .clients-div, .about-home , .roadmap{
     position: relative;
     width: 100vw;
     height: auto;

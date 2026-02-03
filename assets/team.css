@@ -19,7 +19,8 @@ html, body{
     justify-content: center;
     align-items: flex-end;
     position: relative;
-    /* margin-right:13rem; */
+    height:100%;
+    z-index:-100;
      
 }
 

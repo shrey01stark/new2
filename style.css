@@ -2,6 +2,13 @@ html{
    scroll-behavior: smooth;
 }
 
+
+button:focus,
+a:focus,
+.icon:focus {
+  outline: none;
+}
+
 .home img{
     width: 100%;
     height:100%;
@@ -147,6 +154,7 @@ html{
     height: 100%;
     padding:2rem;
     z-index:0;
+    justify-content: space-between;
 }
 
 .box::before {
@@ -208,6 +216,14 @@ html{
   );
 }
 
+.g6::before {
+  background: linear-gradient(
+    to bottom,
+    #562d1e,
+    black
+  );
+}
+
 .proj-wrap a{
   text-decoration: none;
   color:white;
@@ -215,6 +231,7 @@ html{
 
 .report-text p{
     visibility:hidden;
+    line-height: 1.4rem;
 }
 
 .report-text:hover{
@@ -250,8 +267,6 @@ html{
 }
 
 
-
-/* Style the right button */
 .proj-nav-btn {
     position: absolute;
     top: 50%;

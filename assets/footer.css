@@ -7,24 +7,6 @@
     padding-bottom:0;
 }
 
-/* Here are consulting-level titles and summaries for your documents:
-
-### **1. Gambling Industry Report**
-
-**Title:** Navigating the High-Stakes Transformation: A Strategic Outlook on India’s Evolving Gambling and Real-Money Gaming Landscape **Summary:** India's online gambling market, poised to reach $10.8 billion by 2030, faces massive shifts due to new 2025 regulatory bans. 
-
-### **2. Drug Rehab Industry Report**
-
-**Title:** Scaling Recovery Infrastructure: Strategic Analysis of the $3 Billion Indian Rehabilitation Sector and Emerging Growth Drivers **Summary:** Growing at 7–10% CAGR, India’s rehab industry requires technological integration and expanded capacity to bridge the widening treatment gap. 
-
-### **3. Comedy Industry Report**
-
-**Title:** The Business of Laughter: Analyzing Monetization Models, Digital Disruption, and Legal Risks in the Global Comedy Economy **Summary:** Valued at ₹2,500+ crore by 2025, the industry transitions from traditional formats to creator-led digital IPs and high-value OTT specials. 
-
-### **4. Solar Industry Report**
-
-**Title:** Powering the Transition: Strategic Roadmap for India’s Solar Expansion and the Road to 110 GW Capacity by 2026 **Summary:** With solar costs down 80%+, India targets a $14 billion market by 2031, driven by massive rooftop and utility-scale adoption. */
-
 .home6{
     height:90vh;
 }
@@ -34,6 +16,8 @@
     width:100%;
     display:flex;
 }
+
+
 
 .f-vert1, .f-vert2{
     width:50%;
@@ -96,7 +80,6 @@ input::placeholder{
     align-items: end;
     gap:2rem;
     flex-direction: column;
-    
 }
 
 .f-div1, .f-div-copy{
@@ -165,7 +148,7 @@ input::placeholder{
 .grad-line{
     width:95%;
     padding:0.5px;
-    margin:2rem 0 1rem 0;
+    margin:4rem 0 1rem 0;
     background:linear-gradient(to right, black, white, black);
 }
 
