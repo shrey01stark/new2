@@ -55,6 +55,15 @@ body{
     overflow: hidden;
 }
 
+.home-blah {
+    position: sticky;  
+    top:0;
+    width:100vw;
+    height: 43vh;    
+    overflow: hidden;
+}
+
+
 
 .home4{
   position:sticky;

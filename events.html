@@ -218,8 +218,6 @@
 .carousel {
   /* Variables */
   --nav-btn-size: 45px;
-  --nav-btn-bg: olivedrab;
-  --nav-marker-bg: olivedrab;
 
   /* Layout */
   width: 100vw;
@@ -328,7 +326,6 @@
 
 .carousel::scroll-button(*):hover {
   scale: 1.1;
-  background-color: #6b8e23; /* Darker olive */
 }
 
 .carousel::scroll-button(*):disabled {
@@ -367,7 +364,6 @@
 /* --- Section Layout Fixes --- */
 .ody-div {
   text-align: center;
-  margin-bottom: 2rem;
   max-width: 800px;
 }
 
@@ -375,20 +371,26 @@
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 0.5rem;
   line-height: 1.1;
+  margin-top:0;
 }
 
 @media (max-width: 768px) {
   .ody-div h1 { font-size: 2.5rem !important; }
   .carousel { width: 95vw; }
+
+  .nav-btn.prev{display:none; visibility:hidden;}
+  .carousel::scroll-button(inline-start) {
+  display:none;
+  visibility: hidden;
+}
 }
 
-/* Ensure the Odyssey Section background and text contrast */
 section {
-  background-color: #0a0a0a; /* Dark background to make olive pop */
-  overflow: hidden; /* Prevent horizontal scroll on body */
+  background-color: black; 
+  overflow: hidden;
 }
 
-/* Container to keep buttons and carousel together */
+
 .carousel-container {
     position: relative;
     width: 90vw;
@@ -399,7 +401,7 @@ section {
 }
 
 .carousel {
-    --nav-marker-bg: olivedrab;
+
     width: 100%;
     display: grid;
     grid-auto-flow: column;
@@ -457,9 +459,7 @@ section {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: olivedrab;
     color: white;
-    border: none;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
@@ -468,10 +468,18 @@ section {
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+
+    right: 20px;
+
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    border: 2px solid white;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: background 0.3s, transform 0.2s;
 }
 
-.nav-btn:hover { background: #6b8e23; scale: 1.1; }
+.nav-btn:hover { backdrop-filter:blur(20px); scale: 1.1; }
 
 .nav-btn.prev { left: -25px; }
 .nav-btn.next { right: -25px; }
@@ -480,18 +488,50 @@ section {
 /* Section styling */
 .carousel-section {
     width: 100vw;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #0a0a0a;
+    background: black;
 }
+
+.pattern{
+	width:100%;
+	height:100%;
+	background-color: transparent;
+	position: absolute;
+	bottom:0;
+	left:0;
+	margin:0;
+}
+
+.pattern img{
+	width:100%;
+	position: absolute;
+	bottom:0;
+	left:0;
+	margin:0;
+}
+
+.blah-img{
+	object-position: top;
+	width:100%;
+	height:100%;
+	object-fit: cover;
+}
+
 </style>
+<section id="home" class="home-blah" style="background-color:white; min-height:60vh;">
+		<img class="blah-img" src="./assets/img/Ody Head Image.png">
+		<div class="pattern">
+			<img src="./assets/img/ttttttttttt.png">
+		</div>
+</section>
 
 <section class="carousel-section" style="padding:2rem;">
+
     <div class="ody-div">
-        <h1 style="font-size: 4rem;"><span style="color:olivedrab;">Odyssey</span> 180DC (2025)</h1>
+        <h1 style="font-size: 3rem;"><span style="color:#83bc3d;">Odyssey 180'</span>25</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod placeat mollitia excepturi assumenda nam ratione autem ipsum error sit quisquam neque quasi quis, dicta fugit? Beatae sapiente ad temporibus sequi.</p>
     </div>
 
@@ -512,14 +552,21 @@ section {
             <div><div class="img"><img src="./assets/img/event_img/11.png"></div></div>
             <div><div class="img"><img src="./assets/img/event_img/12.png"></div></div>
         </div>
-
+	
         <button class="nav-btn next" onclick="this.previousElementSibling.scrollBy({left: 300, behavior: 'smooth'})">❯</button>
     </div>
 </section>
 
+<section id="home" class="home-blah" style="background-color:white;">
+		<img class="blah-img" src="./assets/img/Synapse Head Image.png">
+		<div class="pattern">
+			<img style="transform: scaleX(-1);" src="./assets/img/ttttttttttt.png">
+		</div>
+</section>
+
 <section class="carousel-section" style="padding:2rem;">
     <div class="ody-div">
-        <h1 style="font-size: 4rem;"><span style="color:olivedrab;">Synapse</span> 180DC (2025)</h1>
+        <h1 style="font-size: 3rem;"><span style="color:#83bc3d;">Synapse'</span>25</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aut harum enim sed inventore est obcaecati vel neque vitae perspiciatis molestiae aspernatur quod totam repellat expedita, illo quisquam soluta necessitatibus ipsum animi voluptas nisi. Natus dicta iure eligendi blanditiis debitis.</p>
     </div>
     <div class="carousel-container">
