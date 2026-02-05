@@ -69,6 +69,7 @@
 	<link rel="stylesheet" href="./assets/about.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	
 </head>
 <body>
@@ -269,52 +270,204 @@
 		}
 
 
-
 	</style>
 
-	<section class="about-home">
+	<section class="about-home" style="background-color: black;">
 		<div class="about-head">
 			<h1>WHO WE ARE</h1>
-			<p> Consulting & Analytics Club, IIT Guwahati, widely known as C&A, is a premier student group operating under the Technical Board of IIT Guwahati since 2016. </p>
+			<p> 180 Degrees Consulting, Atma Ram Sanatan Dharma College, is a student-led social impact consulting body established in 2024.</p>
 		</div>
 		<div class="about-content">
-			<h2>Connect</h2>
-			<p> The club is a dynamic interface for like-minded individuals operating through ‘knowledge-sessions’. We leverage focus groups and expert interviews to conduct in-depth research on core demand areas to facilitate skill-building among members.</p>
+			<h2>Engage</h2>
+			<p> We foster rigorous discourse through research forums, stakeholder dialogues, and curated knowledge exchanges, cultivating analytical depth and sectoral perspective.</p>
 		</div>
 		<div class="about-content">
-			<h2>Learn By Practice</h2>
-			<p> The club is a dynamic interface for like-minded individuals operating through ‘knowledge-sessions’. We leverage focus groups and expert interviews to conduct in-depth research on core demand areas to facilitate skill-building among members.</p>
+			<h2>Apply-in-Action</h2>
+			<p> Members work on live consulting mandates for non-profits and social enterprises, applying research frameworks, data-led insights, and strategic tools to design implementable, outcome-oriented solutions.</p>
 		</div>
 		<div class="about-content">
-			<h2>Beyond</h2>
-			<p> Our members build on the skills and experience they have gained to join top firms and prestigious institutions across all industries after graduation. Our members have won laurels globally in various competitions. With our initiatives, we support over 25K students and professionals from over 50 nations worldwide annually.</p>
+			<h2>Impact Beyond Campus</h2>
+			<p>Our engagements strengthen mission-driven organizations while preparing students for leadership through practical exposure, professional mentorship, and measurable contributions to scalable, long-term social impact.</p>
 		</div>
 		<div class="MEET">
-			<a href="./index.html" style="color:white;">
-				<h2>MEET THE TEAM <i class='fas fa-angle-right'></i></h2>
+			<a href="./events.html" style="color:white;">
+				<h2>OUR FLAGSHIP EVENTS <i class='fas fa-angle-right'></i><i class='fas fa-angle-right'></i><i class='fas fa-angle-right'></i></h2>
 			</a>
 		</div>
 
 	</section>
 
-	<section class="roadmap" >
+	<section class="m-home">
+		<div class="miss-wrap">
+			<div class="m-item1" data-aos="zoom-out-left">
+				<img src="./assets/img/Vision.png">
+				<div class="m-text">
+					<h1 style="margin:0; color:#83bc3d">Vision</h1>
+					<p>We envision an equitable, sustainable future where impact-driven organizations thrive without constraints of expertise or resources. 180 Degrees Consulting, ARSD aspires to lead social impact consulting by developing responsible leaders and enabling meaningful solutions to critical global and national challenges.</p>
+				</div>
+			</div>
+			<div class="m-item2" data-aos="zoom-out-right">
+				<div class="m-text2" >
+					<h1 style="margin:0;">Mission</h1>
+					<p>We empower non-profits and social enterprises with accessible, research-driven consulting, leveraging student talent and professional mentorship to create scalable, accountable, and sustainable social impact.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		
+		.impact-j-div{height:30vh; width:100vw; padding: 4rem 8rem;}
+		.m-home{
+			height:17rem;
+			width:100vw;
+			position: relative;
+
+		}
+		.miss-wrap{
+			height:100%;
+			width:100%;
+			padding: 2rem 8rem 0rem 8rem;
+			display:flex;
+			flex-direction: row-reverse;
+			gap:2rem;
+		}
+
+		.m-item1{
+			width:60%;
+			height:100%;
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			border-radius: 1rem;
+			overflow:hidden;
+		}
+
+		.m-text p{
+			line-height: 1.4rem;
+		}
+
+		.m-text2 p{
+			line-height: 1.4rem;
+		}
+
+		.m-item2{
+			width:40%;
+			height:auto;
+			background-color: #0e3e1b;
+			border-radius: 1rem;
+		}
+
+		.m-item1 img{
+			height: 100%;
+			width:100%;
+			object-fit: cover;
+			
+		}
+
+		.m-text{
+			position: absolute;
+			top:0;
+			padding:2rem;
+		}
+
+		.m-text2{
+			padding:2rem;
+
+		}
+
+		@media (max-width: 1100px) {
+
+  .m-home {
+    height: auto;
+  }
+
+  .miss-wrap {
+    padding: 3rem 3rem;
+    flex-direction: column;
+	height:auto;
+  }
+
+  	.impact-j-div{
+		height:fit-content; width:100vw; padding: 0rem 2rem 2rem 2rem;
+	}
+  .m-item1,
+  .m-item2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .m-item1 {
+    min-height: 22rem;
+  }
+.m-item1 img{
+			height: 100%;
+			width:100%;
+			object-fit: cover;
+			
+		}
+  
+}
+
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .miss-wrap {
+    padding: 2rem 1.2rem;
+    gap: 1.5rem;
+  }
+
+  .m-item1 {
+    min-height: 20rem;
+    border-radius: 0.8rem;
+  }
+
+  .m-item2 {
+    border-radius: 0.8rem;
+  }
+
+  .m-text h1,
+  .m-text2 h1 {
+    font-size: 1.6rem;
+  }
+
+  .m-text p,
+  .m-text2 p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+
+
+		
+	</style>
+
+
+	<section class="impact-j-div" >
+		<h1 style="font-size: 3rem; margin-bottom:0;"><div style="display: flex;align-items: center;gap:1rem;">Our Impact Journey <img src="assets/icons/arrow-down-right.svg" ></div></h1>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates dolor modi hic!</p>
+	</section>
+
+	<section class="roadmap" style="display: flex; justify-content: center; align-items: center; padding-bottom: 4rem;">
+
 		<main class="timeline-wrapper"  style="display:flex; justify-content: center; align-items: center;">
 			<div class="svg-timeline">
 			</div>
 			<ol class="timeline">
-				<li class="timeline__item reveal-left glass-card2">
+				<li class="timeline__item reveal-left glass-card2" data-aos="fade-up-right">
 					<img src="./assets/img/1 Image.png">
 					<h3 class="timeline__day">Day 1: <span>Helsinki, Finland</span></h3>
 					<p class="timeline__day-sum">Your adventure begins with a one-night stay in Helsinki, Finland's capital.</p>
 					
 				</li>
-				<li class="timeline__item right reveal-right glass-card2">
+				<li class="timeline__item right reveal-right glass-card2" data-aos="fade-up-left">
 					<img src="./assets/img/2 Image.png">
 					<h3 class="timeline__day dayTwo">Day 2: <span>Embarkation Day in Murmansk</span></h3>
 					<p class="timeline__day-sum">From Helsinki, your charter flight will take you to Murmansk, Russia, where you'll embark on your voyage to the North Pole and get acquainted with 50 Years of Victory, the world's largest and most powerful icebreaker.</p>
 					
 				</li>
-				<li class="timeline__item reveal-left glass-card2">
+				<li class="timeline__item reveal-left glass-card2" data-aos="fade-up-right">
 					<img src="./assets/img/3 Image.png">
 					<h3 class="timeline__day dayThree">Day 3-6: <span>Northbound in the Arctic Ocean</span></h3>
 					<p class="timeline__day-sum">Watching the ship crush through the Arctic ice pack is a sight you'll never forget, made even more memorable by taking a helicopter flight for a thrilling aerial view of the ship and expansive Arctic Ocean.</p>
@@ -326,6 +479,43 @@
 		</main>
 
 	</section>
+
+	<section class="convener">
+		<h1 style="font-size: 3rem;color:#83bc3d;">Our Convener</h1>
+		<img src="./assets/img/barunChacha.png">
+		<h2 style="font-size: 2rem; color:white; margin:0;">Dr. Barun Kumar Jha</h2>
+		<div style="width:50vw; height:1px; margin: 1rem; background:linear-gradient(to right, #0e0e0e, white, #0e0e0e)"></div>
+		<p style="margin-bottom:2rem;">Dr. Barun Kumar Jha holds a Ph.D. in Accounting and Finance and serves as an Assistant Professor in the Department of Commerce at Atma Ram Sanatan Dharma College (ARSD), University of Delhi. His academic expertise spans Financial Accounting, Corporate Finance, and Business Analysis.</p>
+	</section>
+
+	<style>
+		.convener{
+			height:100vh;width:100vw; padding: 0rem 4rem 0 4rem; 
+			display: flex;justify-content: center;align-items: center; 
+			flex-direction: column;background-color: #0e0e0e;
+			text-align: center;
+		}
+
+		.convener img{
+			height:20rem;
+			width:18rem;
+			object-fit: cover;
+			margin-bottom:2rem;
+			border-radius:10px;
+		}
+
+		.convener p{
+			width:70%; 
+		}
+
+		@media (max-width:800px){
+			.convener p{
+				width:100%;
+				font-size:0.9rem;
+			}
+		}
+		
+	</style>
 
 	
 	<footer id="home6" class="home6" style="background-color:black;">
@@ -401,10 +591,17 @@
 	<script src="https://unpkg.com/gsap@3/dist/DrawSVGPlugin.min.js"></script>
 
 	<script src="./script.js" defer></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+	<script>
+		AOS.init();
+	</script>
 
 	<script src="https://unpkg.com/lucide@latest"></script>
+
 	<script>
 		lucide.createIcons();
 	</script>	
+	
 </body>
 </html>
